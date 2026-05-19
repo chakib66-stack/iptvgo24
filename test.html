@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPTVGO24 — Premium TV Streaming · 24h GRATIS testen</title>
+<meta name="description" content="Premium IPTV Deutschland. 20.000+ Live-Sender, Bundesliga, Sky, DAZN. Ab 30€ für 3 Monate. 24h gratis testen, 14 Tage Geld-zurück-Garantie.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f5f7fa;
+    --bg-section: #f0f4f9;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --text-2: #334155;
+    --muted: #64748b;
+    --primary: #0066ff;
+    --primary-dark: #0052cc;
+    --primary-light: #e6f0ff;
+    --accent: #ff3d3d;
+    --accent-dark: #e02929;
+    --gold: #ffb800;
+    --success: #10b981;
+    --whatsapp: #25d366;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  .display { font-family: 'Barlow Condensed', sans-serif; letter-spacing: -0.01em; text-transform: uppercase; }
+  .italic-display { font-style: italic; }
+  
+  /* Buttons */
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    font-weight: 800;
+    padding: 16px 32px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.15s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 14px rgba(255,61,61,0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255,61,61,0.35);
+  }
+  .btn-secondary {
+    background: white;
+    color: var(--primary);
+    font-weight: 800;
+    padding: 16px 32px;
+    border-radius: 6px;
+    border: 2px solid var(--primary);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.15s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .btn-secondary:hover { background: var(--primary-light); }
+  .btn-whatsapp {
+    background: var(--whatsapp);
+    color: white;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    transition: all 0.15s;
+  }
+  .btn-whatsapp:hover { background: #1ebc56; }
+  
+  /* Sport ticker */
+  .sport-ticker {
+    background: var(--text);
+    color: white;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker-track {
+    display: flex;
+    gap: 40px;
+    animation: ticker 30s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .live-dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse-live 1.5s infinite;
+  }
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  /* HERO IMAGE BACKGROUND */
+  .hero-image-bg {
+    background-image: 
+      linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.5) 70%, rgba(255,255,255,0.3) 100%),
+      url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  @media (max-width: 768px) {
+    .hero-image-bg {
+      background-image: 
+        linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.92) 60%, rgba(255,255,255,0.85) 100%),
+        url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=800&q=80');
+    }
+  }
+  
+  /* Image card with overlay */
+  .image-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+  .image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .image-card:hover img { transform: scale(1.05); }
+  .image-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    color: white;
+  }
+  
+  /* Section with image */
+  .section-image {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+  }
+  .section-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Cards */
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.2s;
+    overflow: hidden;
+  }
+  .card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0,102,255,0.1);
+  }
+  
+  /* Feature cards with images */
+  .feature-card-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+  }
+  .feature-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .card:hover .feature-card-image img { transform: scale(1.1); }
+  
+  /* Price cards */
+  .price-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .price-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0,102,255,0.12);
+  }
+  .price-card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, #fff5f5 0%, white 30%);
+  }
+  .price-card.best {
+    border-color: var(--gold);
+    background: linear-gradient(180deg, #fffaeb 0%, white 30%);
+  }
+  .badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .badge-popular { background: var(--accent); color: white; }
+  .badge-best { background: var(--gold); color: var(--text); }
+  
+  /* Input */
+  input, select {
+    background: white;
+    border: 2px solid var(--border);
+    color: var(--text);
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0,102,255,0.1);
+  }
+  
+  /* Sticky header */
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--primary);
+  }
+  
+  /* Channel logos */
+  .channel-logo {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 8px;
+    text-align: center;
+    transition: all 0.2s;
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .channel-logo:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+  
+  /* Testimonial */
+  .testimonial {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    border-top: 4px solid var(--primary);
+  }
+  .testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+  }
+  
+  /* Guarantee */
+  .guarantee-badge {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 2px solid var(--success);
+    border-radius: 10px;
+    padding: 14px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #065f46;
+    font-weight: 700;
+  }
+  
+  /* FAQ */
+  details {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s;
+  }
+  details[open] { border-color: var(--primary); }
+  details summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 24px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text);
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: '+';
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--primary);
+  }
+  details[open] summary::after { content: '−'; }
+  details > div {
+    padding: 0 24px 20px;
+    color: var(--text-2);
+    line-height: 1.6;
+  }
+  
+  /* Floating WhatsApp */
+  .floating-cta {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+    border-radius: 50px;
+    animation: float-bounce 3s ease-in-out infinite;
+  }
+  @keyframes float-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  
+  /* Bundesliga section bg */
+  .stadium-bg {
+    background-image: 
+      linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.75) 100%),
+      url('https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  
+  /* Trial form bg */
+  .trial-bg {
+    background-image: 
+      linear-gradient(135deg, rgba(0,102,255,0.95) 0%, rgba(0,82,204,0.95) 100%),
+      url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Final CTA bg */
+  .final-cta-bg {
+    background-image:
+      linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.95) 100%),
+      url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--primary-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="sticky-header">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-black" style="background: linear-gradient(135deg, var(--primary), var(--accent));">
+        TV
+      </div>
+      <div>
+        <div class="display font-black text-xl" style="color: var(--text);">IPTVGO24</div>
+        <div class="text-xs" style="color: var(--muted);">Premium Streaming</div>
+      </div>
+    </div>
+    <a href="#trial" class="btn-primary" style="padding: 10px 20px; font-size: 13px;">
+      24H GRATIS
+    </a>
+  </div>
+</header>
+
+<!-- LIVE TICKER -->
+<div class="sport-ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="live-dot"></span>Live · Bundesliga · Bayern vs BVB</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · Champions League · Real vs City</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · F1 · GP Monaco</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · NBA · Lakers vs Celtics</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · UFC · Main Event</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · Tennis · ATP Final</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · Bundesliga · Bayern vs BVB</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · Champions League · Real vs City</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · F1 · GP Monaco</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · NBA · Lakers vs Celtics</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · UFC · Main Event</span>
+    <span class="ticker-item"><span class="live-dot"></span>Live · Tennis · ATP Final</span>
+  </div>
+</div>
+
+<!-- HERO WITH IMAGE -->
+<section class="hero-image-bg relative">
+  <div class="max-w-7xl mx-auto px-4 py-12 md:py-24">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6" style="background: var(--primary-light); color: var(--primary);">
+          <span class="live-dot" style="background: var(--success);"></span>
+          <span class="text-xs font-bold uppercase tracking-wider">3.000+ zufriedene Kunden</span>
+        </div>
+
+        <h1 class="display text-5xl md:text-7xl font-black mb-4 leading-none">
+          <span style="color: var(--text);">Sky kostet</span><br>
+          <span class="italic-display" style="color: var(--accent);">600€/Jahr.</span><br>
+          <span style="color: var(--text);">Wir nur</span> <span class="italic-display" style="color: var(--primary);">65€.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl mb-3" style="color: var(--text-2);">
+          <strong>20.000+ Live-Sender</strong> · <strong>50.000+ Filme & Serien</strong>
+        </p>
+        <p class="text-base mb-8" style="color: var(--text-2);">
+          Bundesliga · Champions League · Sky · DAZN · alles in einem Paket.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 mb-8">
+          <a href="#trial" class="btn-primary">🎁 24H GRATIS TESTEN</a>
+          <a href="#pricing" class="btn-secondary">PREISE ANSEHEN</a>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 text-sm" style="color: var(--text-2);">
+          <span>✓ Keine Kreditkarte</span>
+          <span>✓ Sofort-Start</span>
+          <span>✓ 14 Tage Geld-zurück</span>
+        </div>
+      </div>
+
+      <!-- Hero floating image -->
+      <div class="hidden lg:block">
+        <div class="section-image">
+          <img src="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1200&q=80" alt="Premium TV Experience" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-4 mt-16 pt-12 border-t" style="border-color: var(--border);">
+      <div class="text-center">
+        <p class="stat-num">20K+</p>
+        <p class="text-xs md:text-sm font-bold uppercase tracking-wider mt-2" style="color: var(--muted);">Live TV-Sender</p>
+      </div>
+      <div class="text-center">
+        <p class="stat-num">50K+</p>
+        <p class="text-xs md:text-sm font-bold uppercase tracking-wider mt-2" style="color: var(--muted);">Filme & Serien</p>
+      </div>
+      <div class="text-center">
+        <p class="stat-num">24/7</p>
+        <p class="text-xs md:text-sm font-bold uppercase tracking-wider mt-2" style="color: var(--muted);">Support DE</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS BAR -->
+<section class="py-12" style="background: white; border-top: 1px solid var(--border);">
+  <div class="max-w-7xl mx-auto px-4">
+    <p class="text-center text-xs font-bold uppercase tracking-widest mb-6" style="color: var(--muted);">
+      Alle deine Lieblings-Sender — inklusive
+    </p>
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-3">
+      <div class="channel-logo"><div class="font-black" style="color: #003a78;">Sky</div><div class="text-xs" style="color: var(--muted);">Sport</div></div>
+      <div class="channel-logo"><div class="font-black" style="color: #f8004b;">DAZN</div><div class="text-xs" style="color: var(--muted);">Sport</div></div>
+      <div class="channel-logo"><div class="font-black" style="color: #d0021b;">RTL</div><div class="text-xs" style="color: var(--muted);">HD</div></div>
+      <div class="channel-logo"><div class="font-black" style="color: #f60;">Pro7</div><div class="text-xs" style="color: var(--muted);">HD</div></div>
+      <div class="channel-logo"><div class="font-black" style="color: #003494;">ARD</div><div class="text-xs" style="color: var(--muted);">HD</div></div>
+      <div class="channel-logo"><div class="font-black" style="color: #ff8000;">ZDF</div><div class="text-xs" style="color: var(--muted);">HD</div></div>
+      <div class="channel-logo"><div class="font-black" style="color: #ec1c24;">Sat.1</div><div class="text-xs" style="color: var(--muted);">HD</div></div>
+      <div class="channel-logo" style="background: var(--primary-light); border-color: var(--primary);"><div class="font-black" style="color: var(--primary);">+19.992</div><div class="text-xs" style="color: var(--primary);">mehr</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUNDESLIGA / SPORT SECTION (with stadium image bg) -->
+<section class="stadium-bg py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--gold);">⚽ SPORT LIVE</p>
+        <h2 class="display text-4xl md:text-6xl font-black mb-6 leading-none">
+          Jedes Tor.<br>
+          <span class="italic-display" style="color: var(--gold);">Jedes Spiel.</span><br>
+          Live in 4K.
+        </h2>
+        <p class="text-lg mb-6 opacity-90">
+          Bundesliga, Champions League, Formel 1, NBA, UFC — alle Sport-Events der Welt in einem Paket.
+        </p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-center gap-3"><span class="text-2xl">⚽</span><span>Sky Bundesliga komplett</span></li>
+          <li class="flex items-center gap-3"><span class="text-2xl">🏆</span><span>UEFA Champions League</span></li>
+          <li class="flex items-center gap-3"><span class="text-2xl">🏎️</span><span>Formel 1 & MotoGP</span></li>
+          <li class="flex items-center gap-3"><span class="text-2xl">🥊</span><span>UFC, Boxen, MMA</span></li>
+          <li class="flex items-center gap-3"><span class="text-2xl">🏀</span><span>NBA, Tennis, Golf</span></li>
+        </ul>
+        <a href="#trial" class="btn-primary">JETZT KOSTENLOS TESTEN</a>
+      </div>
+      <div class="image-card">
+        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80" alt="Stadium" loading="lazy">
+        <div class="image-card-overlay">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="live-dot"></span>
+              <span class="text-xs font-bold uppercase tracking-wider">LIVE · 4K HDR</span>
+            </div>
+            <p class="display font-black text-3xl">Bundesliga heute</p>
+            <p class="text-sm opacity-90">9 Spiele · 18 Kameras · Multi-Cam</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="py-16 md:py-24" style="background: var(--bg-section);">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--primary);">PREISVERGLEICH</p>
+      <h2 class="display text-4xl md:text-6xl font-black mb-4" style="color: var(--text);">
+        Warum <span class="italic-display" style="color: var(--accent);">600€+ pro Jahr</span><br>verschwenden?
+      </h2>
+      <p class="text-lg" style="color: var(--text-2);">Die ehrliche Wahrheit über deine TV-Kosten.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-xl p-6 md:p-8 border" style="border-color: var(--border);">
+        <div class="flex items-center gap-3 mb-6 pb-6 border-b" style="border-color: var(--border);">
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center font-black text-white" style="background: #003a78;">Sky</div>
+          <div>
+            <h3 class="display font-black text-xl">Sky + DAZN + Netflix</h3>
+            <p class="text-sm" style="color: var(--muted);">Traditioneller Weg</p>
+          </div>
+        </div>
+        <ul class="space-y-4 mb-6">
+          <li class="flex justify-between items-center"><span style="color: var(--text-2);">Sky Komplett</span><span class="display font-black text-lg">~50€<span class="text-xs" style="color: var(--muted);">/Mt</span></span></li>
+          <li class="flex justify-between items-center"><span style="color: var(--text-2);">DAZN Sport</span><span class="display font-black text-lg">~35€<span class="text-xs" style="color: var(--muted);">/Mt</span></span></li>
+          <li class="flex justify-between items-center"><span style="color: var(--text-2);">Netflix Premium</span><span class="display font-black text-lg">~18€<span class="text-xs" style="color: var(--muted);">/Mt</span></span></li>
+          <li class="flex justify-between items-center pt-4 border-t" style="border-color: var(--border);">
+            <span class="display font-black uppercase">Total / Jahr</span>
+            <span class="display font-black text-3xl" style="color: var(--accent);">1.236€</span>
+          </li>
+        </ul>
+        <p class="text-xs text-center pt-4 italic" style="color: var(--muted);">+ 24 Monate Vertragsbindung 😱</p>
+      </div>
+
+      <div class="rounded-xl p-6 md:p-8 relative" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; box-shadow: 0 20px 60px rgba(0,102,255,0.25);">
+        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black text-xs font-black uppercase px-4 py-1 rounded">★ Beste Wahl</div>
+        <div class="flex items-center gap-3 mb-6 pb-6 border-b border-white/20">
+          <div class="w-14 h-14 rounded-lg flex items-center justify-center font-black bg-white" style="color: var(--primary);">TV</div>
+          <div>
+            <h3 class="display font-black text-xl">IPTVGO24</h3>
+            <p class="text-sm opacity-90">Alles in einem</p>
+          </div>
+        </div>
+        <ul class="space-y-4 mb-6">
+          <li class="flex justify-between items-center"><span class="opacity-90">Sky + Bundesliga</span><span class="font-bold">✓ Inklusive</span></li>
+          <li class="flex justify-between items-center"><span class="opacity-90">DAZN + CL</span><span class="font-bold">✓ Inklusive</span></li>
+          <li class="flex justify-between items-center"><span class="opacity-90">50.000+ VOD</span><span class="font-bold">✓ Inklusive</span></li>
+          <li class="flex justify-between items-center pt-4 border-t border-white/20">
+            <span class="display font-black uppercase">Total / Jahr</span>
+            <span class="display font-black text-3xl" style="color: #ffd700;">65€</span>
+          </li>
+        </ul>
+        <div class="text-center pt-4 border-t border-white/20">
+          <p class="text-sm opacity-90 mb-1">Du sparst pro Jahr</p>
+          <p class="display text-5xl font-black" style="color: #ffd700;">1.171€</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES WITH IMAGES -->
+<section class="py-16 md:py-24" style="background: white;">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--primary);">FEATURES</p>
+      <h2 class="display text-4xl md:text-6xl font-black mb-4" style="color: var(--text);">
+        Premium TV.<br>
+        <span class="italic-display" style="color: var(--primary);">Ohne Kompromisse.</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="card">
+        <div class="feature-card-image">
+          <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800&q=80" alt="Live TV" loading="lazy">
+        </div>
+        <div class="p-6">
+          <h3 class="display font-black text-lg mb-2 uppercase">20.000+ Live-Sender</h3>
+          <p style="color: var(--text-2);">Alle DACH-Sender + 50 Länder international.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="feature-card-image">
+          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="Movies" loading="lazy">
+        </div>
+        <div class="p-6">
+          <h3 class="display font-black text-lg mb-2 uppercase">50.000+ Filme & Serien</h3>
+          <p style="color: var(--text-2);">Riesige VOD-Bibliothek auf Abruf — wie Netflix, aber größer.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="feature-card-image">
+          <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800&q=80" alt="Sport" loading="lazy">
+        </div>
+        <div class="p-6">
+          <h3 class="display font-black text-lg mb-2 uppercase">Alle Sport-Events</h3>
+          <p style="color: var(--text-2);">Bundesliga, CL, F1, NBA, UFC — alles live in 4K.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="feature-card-image">
+          <img src="https://images.unsplash.com/photo-1601944179066-29786cb9d32a?w=800&q=80" alt="Devices" loading="lazy">
+        </div>
+        <div class="p-6">
+          <h3 class="display font-black text-lg mb-2 uppercase">Alle Geräte</h3>
+          <p style="color: var(--text-2);">Smart TV, Fire Stick, Handy, Tablet, PC — überall.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="feature-card-image">
+          <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=80" alt="4K Quality" loading="lazy">
+        </div>
+        <div class="p-6">
+          <h3 class="display font-black text-lg mb-2 uppercase">4K Ultra HD</h3>
+          <p style="color: var(--text-2);">Höchste Qualität, kein Buffering, stabile Premium-Server.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="feature-card-image">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" alt="Support" loading="lazy">
+        </div>
+        <div class="p-6">
+          <h3 class="display font-black text-lg mb-2 uppercase">24/7 Support</h3>
+          <p style="color: var(--text-2);">Persönlicher Support per WhatsApp — auf Deutsch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIAL FORM WITH IMAGE BG -->
+<section id="trial" class="trial-bg py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center mb-10" style="color: white;">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-white/15 backdrop-blur">
+        <span class="live-dot"></span>
+        <span class="text-xs font-bold uppercase tracking-wider">24h GRATIS — Vollzugriff</span>
+      </div>
+      <h2 class="display text-4xl md:text-6xl font-black mb-4">
+        Starte deinen<br>
+        <span class="italic-display" style="color: #ffd700;">24h Test</span> jetzt.
+      </h2>
+      <p class="text-lg opacity-90">In 60 Sekunden bist du fertig. Keine Kreditkarte. Keine Abo-Falle.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-6 md:p-10 shadow-2xl">
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-bold mb-2 uppercase tracking-wider" style="color: var(--text);">Dein Name</label>
+          <input type="text" id="leadName" placeholder="z.B. Hans Müller" required>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-2 uppercase tracking-wider" style="color: var(--text);">WhatsApp Nummer</label>
+          <input type="tel" id="leadWhatsapp" placeholder="+49 ...">
+          <p class="text-xs mt-1" style="color: var(--muted);">Wir senden dir deine Zugangsdaten per WhatsApp</p>
+        </div>
+        <div>
+          <label class="block text-sm font-bold mb-2 uppercase tracking-wider" style="color: var(--text);">Welches Gerät? (Optional)</label>
+          <select id="leadDevice">
+            <option value="">— Auswählen —</option>
+            <option>Smart TV (Samsung, LG, Sony)</option>
+            <option>Fire TV Stick</option>
+            <option>Android Box / TV</option>
+            <option>Handy / Tablet</option>
+            <option>PC / Mac</option>
+            <option>Anderes</option>
+          </select>
+        </div>
+        <button onclick="submitTrial()" class="btn-primary w-full" style="padding: 18px; font-size: 17px;">
+          🎁 KOSTENLOSEN 24H TEST STARTEN
+        </button>
+        <p class="text-xs text-center" style="color: var(--muted);">
+          Mit Klick stimmst du zu, dass wir dich per WhatsApp kontaktieren.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 mt-8 text-center" style="color: white;">
+      <div><div class="text-2xl mb-1">🔒</div><p class="text-xs font-bold uppercase tracking-wider opacity-90">Sicher</p></div>
+      <div><div class="text-2xl mb-1">⚡</div><p class="text-xs font-bold uppercase tracking-wider opacity-90">5 Min Aktivierung</p></div>
+      <div><div class="text-2xl mb-1">💯</div><p class="text-xs font-bold uppercase tracking-wider opacity-90">14 Tage Garantie</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-16 md:py-24" style="background: white;">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--primary);">PREISE</p>
+      <h2 class="display text-4xl md:text-6xl font-black mb-4" style="color: var(--text);">
+        Einmal zahlen.<br>
+        <span class="italic-display" style="color: var(--accent);">Keine Tricks.</span>
+      </h2>
+      <p class="text-lg mb-6" style="color: var(--text-2);">Keine versteckten Gebühren, keine Verträge.</p>
+      <div class="guarantee-badge">
+        <span class="text-2xl">🛡️</span>
+        <span>14 Tage Geld-zurück-Garantie</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="price-card">
+        <p class="display text-xs font-black uppercase tracking-widest mb-3" style="color: var(--muted);">STARTER</p>
+        <div class="flex items-baseline gap-1 mb-1">
+          <span class="display text-6xl font-black" style="color: var(--text);">30</span>
+          <span class="text-2xl font-bold" style="color: var(--text);">€</span>
+        </div>
+        <p class="text-sm font-bold mb-1" style="color: var(--text-2);">3 Monate</p>
+        <p class="text-xs mb-6" style="color: var(--muted);">= 10€/Monat</p>
+        <ul class="space-y-2 mb-6 text-sm flex-1" style="color: var(--text-2);">
+          <li>✓ 20.000+ Live-Sender</li>
+          <li>✓ 50.000+ Filme & Serien</li>
+          <li>✓ 4K Qualität</li>
+          <li>✓ 24/7 Support</li>
+          <li>✓ Alle Geräte</li>
+        </ul>
+        <a href="#trial" class="btn-secondary w-full text-center text-sm">24h TESTEN</a>
+      </div>
+
+      <div class="price-card">
+        <p class="display text-xs font-black uppercase tracking-widest mb-3" style="color: var(--muted);">PLUS</p>
+        <div class="flex items-baseline gap-1 mb-1">
+          <span class="display text-6xl font-black" style="color: var(--text);">45</span>
+          <span class="text-2xl font-bold" style="color: var(--text);">€</span>
+        </div>
+        <p class="text-sm font-bold mb-1" style="color: var(--text-2);">6 Monate</p>
+        <p class="text-xs mb-6" style="color: var(--success); font-weight: 700;">= 7,50€/Monat · Spare 25%</p>
+        <ul class="space-y-2 mb-6 text-sm flex-1" style="color: var(--text-2);">
+          <li>✓ Alles aus Starter</li>
+          <li>✓ Premium Server</li>
+          <li>✓ Volle VOD-Bibliothek</li>
+          <li>✓ 14 Tage Garantie</li>
+        </ul>
+        <a href="#trial" class="btn-secondary w-full text-center text-sm">24h TESTEN</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="badge badge-popular">⭐ BELIEBT</div>
+        <p class="display text-xs font-black uppercase tracking-widest mb-3" style="color: var(--accent);">1 JAHR + 1 MONAT GRATIS</p>
+        <div class="flex items-baseline gap-1 mb-1">
+          <span class="display text-6xl font-black" style="color: var(--text);">65</span>
+          <span class="text-2xl font-bold" style="color: var(--text);">€</span>
+        </div>
+        <p class="text-sm font-bold mb-1" style="color: var(--text-2);">13 Monate total</p>
+        <p class="text-xs mb-6" style="color: var(--success); font-weight: 700;">= 5€/Monat · Spare 50%</p>
+        <ul class="space-y-2 mb-6 text-sm flex-1" style="color: var(--text-2);">
+          <li>✓ Alles aus Plus</li>
+          <li>✓ <strong>1 Monat GRATIS</strong></li>
+          <li>✓ Priority Server</li>
+          <li>✓ Priority Support</li>
+        </ul>
+        <a href="#trial" class="btn-primary w-full text-center text-sm">24h TESTEN</a>
+      </div>
+
+      <div class="price-card best">
+        <div class="badge badge-best">💎 BESTE WAHL</div>
+        <p class="display text-xs font-black uppercase tracking-widest mb-3" style="color: var(--gold);">2 JAHRE + 3 MONATE GRATIS</p>
+        <div class="flex items-baseline gap-1 mb-1">
+          <span class="display text-6xl font-black" style="color: var(--text);">120</span>
+          <span class="text-2xl font-bold" style="color: var(--text);">€</span>
+        </div>
+        <p class="text-sm font-bold mb-1" style="color: var(--text-2);">27 Monate total</p>
+        <p class="text-xs mb-6" style="color: var(--success); font-weight: 700;">= 4,44€/Monat · Spare 60%</p>
+        <ul class="space-y-2 mb-6 text-sm flex-1" style="color: var(--text-2);">
+          <li>✓ Alles aus 1 Jahr</li>
+          <li>✓ <strong>3 Monate GRATIS</strong></li>
+          <li>✓ VIP Server</li>
+          <li>✓ VIP Support</li>
+        </ul>
+        <a href="#trial" class="btn-primary w-full text-center text-sm" style="background: var(--gold); color: var(--text);">24h TESTEN</a>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--muted);">💳 ZAHLUNG: PayPal · Karte · Krypto · SEPA</p>
+      <p class="text-sm" style="color: var(--success); font-weight: 700;">✓ Einmalige Zahlung — keine versteckten Gebühren</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS WITH AVATARS -->
+<section class="py-16 md:py-24" style="background: var(--bg-section);">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--primary);">KUNDENMEINUNGEN</p>
+      <div class="text-3xl mb-2" style="color: var(--gold);">⭐⭐⭐⭐⭐</div>
+      <h2 class="display text-4xl md:text-6xl font-black mb-4" style="color: var(--text);">4,8 / 5 Sterne</h2>
+      <p class="text-lg" style="color: var(--text-2);">Basierend auf 847 verifizierten Bewertungen</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="testimonial">
+        <div class="text-xl mb-3" style="color: var(--gold);">⭐⭐⭐⭐⭐</div>
+        <p class="mb-4" style="color: var(--text-2);">"Endlich Bundesliga in 4K ohne Sky zu zahlen. Funktioniert perfekt auf meinem Fire TV Stick. Support antwortet in Minuten."</p>
+        <div class="flex items-center gap-3 pt-4 border-t" style="border-color: var(--border);">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Markus" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="font-bold text-sm">Markus K.</p>
+            <p class="text-xs" style="color: var(--muted);">München · 8 Monate Kunde</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="text-xl mb-3" style="color: var(--gold);">⭐⭐⭐⭐⭐</div>
+        <p class="mb-4" style="color: var(--text-2);">"Habe Sky nach 12 Jahren gekündigt. IPTVGO24 hat ALLE Sender, Stream läuft stabil. Für 65€ pro Jahr — unschlagbar!"</p>
+        <div class="flex items-center gap-3 pt-4 border-t" style="border-color: var(--border);">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Stefan" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="font-bold text-sm">Stefan B.</p>
+            <p class="text-xs" style="color: var(--muted);">Berlin · 1 Jahr Kunde</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="text-xl mb-3" style="color: var(--gold);">⭐⭐⭐⭐⭐</div>
+        <p class="mb-4" style="color: var(--text-2);">"Setup war einfacher als gedacht. Habe meinen Vater (78) auch eingerichtet — er kommt klar. Super Service auf Deutsch."</p>
+        <div class="flex items-center gap-3 pt-4 border-t" style="border-color: var(--border);">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Thomas" class="testimonial-avatar" loading="lazy">
+          <div>
+            <p class="font-bold text-sm">Thomas L.</p>
+            <p class="text-xs" style="color: var(--muted);">Hamburg · 6 Monate Kunde</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-16 md:py-24" style="background: white;">
+  <div class="max-w-3xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--primary);">FAQ</p>
+      <h2 class="display text-4xl md:text-6xl font-black mb-4" style="color: var(--text);">Häufige Fragen</h2>
+    </div>
+
+    <div class="space-y-3">
+      <details>
+        <summary>Wie funktioniert der 24h Gratis-Test?</summary>
+        <div>Du füllst das Formular aus, wir senden dir innerhalb von 5-10 Minuten per WhatsApp deine Zugangsdaten. Du kannst 24 Stunden lang alles testen — komplett kostenlos, keine Kreditkarte nötig.</div>
+      </details>
+      <details>
+        <summary>Wie funktioniert die Geld-zurück-Garantie?</summary>
+        <div>Falls du nicht zufrieden bist, kannst du innerhalb von 14 Tagen nach Kauf eine vollständige Rückerstattung anfordern.</div>
+      </details>
+      <details>
+        <summary>Gibt es versteckte Kosten oder Verträge?</summary>
+        <div><strong>Nein.</strong> Du zahlst einmal für 3, 6, 12 oder 24 Monate. Keine automatische Verlängerung.</div>
+      </details>
+      <details>
+        <summary>Brauche ich technisches Wissen?</summary>
+        <div>Nein. Die Einrichtung dauert 5 Minuten. Wir senden dir eine bebilderte Anleitung für dein Gerät.</div>
+      </details>
+      <details>
+        <summary>Welche Geräte werden unterstützt?</summary>
+        <div>Alle Geräte: Smart TVs, Fire TV Stick, Android Box, MAG, iPhone, Android, Windows/Mac.</div>
+      </details>
+      <details>
+        <summary>Wie kann ich bezahlen?</summary>
+        <div>PayPal, Kreditkarte, SEPA, Kryptowährungen (Bitcoin, USDT).</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA WITH IMAGE -->
+<section class="final-cta-bg py-16 md:py-24">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color: #ffd700;">JETZT STARTEN</p>
+    <h2 class="display text-4xl md:text-7xl font-black mb-6 leading-none">
+      Bereit für<br>
+      <span class="italic-display" style="color: #ffd700;">echtes TV?</span>
+    </h2>
+    <p class="text-lg md:text-xl mb-8 opacity-90">
+      Schließe dich 3.000+ Deutschen an, die bereits <strong>1.000€+ pro Jahr</strong> sparen.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="#trial" class="btn-primary text-base">🎁 24H GRATIS STARTEN</a>
+      <a href="https://wa.me/447919219953?text=Hallo!%20Ich%20interessiere%20mich%20f%C3%BCr%20IPTVGO24" target="_blank" class="btn-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+        WhatsApp Direkt
+      </a>
+    </div>
+    <p class="text-sm mt-6 opacity-70">Aktivierung in 5 Min · 14 Tage Geld-zurück · Keine Verpflichtung</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8 border-t" style="border-color: var(--border); background: white;">
+  <div class="max-w-7xl mx-auto px-4 text-center text-sm" style="color: var(--muted);">
+    <p class="mb-2">© 2026 <strong style="color: var(--text);">IPTVGO24</strong> · Premium TV Streaming Service</p>
+    <p>WhatsApp: <a href="https://wa.me/447919219953" style="color: var(--primary); font-weight: 600;">+44 7919 219953</a></p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/447919219953?text=Hallo!%20Ich%20m%C3%B6chte%20den%2024h%20GRATIS%20Test%20starten" target="_blank" class="floating-cta btn-whatsapp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+  <span>24H GRATIS</span>
+</a>
+
+<script>
+function submitTrial() {
+  const name = document.getElementById('leadName').value.trim();
+  const whatsapp = document.getElementById('leadWhatsapp').value.trim();
+  const device = document.getElementById('leadDevice').value;
+  
+  if (!name) { alert('Bitte gib deinen Namen ein.'); return; }
+  if (!whatsapp || whatsapp.length < 8) { alert('Bitte gib eine gültige WhatsApp-Nummer ein.'); return; }
+  
+  const message = encodeURIComponent(
+    `Hallo IPTVGO24! 👋\n\nIch möchte den 24h GRATIS Test starten:\n\n` +
+    `👤 Name: ${name}\n📱 WhatsApp: ${whatsapp}\n` +
+    (device ? `📺 Gerät: ${device}\n` : '') +
+    `\nBitte sendet mir die Zugangsdaten. Danke!`
+  );
+  
+  window.open(`https://wa.me/447919219953?text=${message}`, '_blank');
+}
+</script>
+
+</body>
+</html>
